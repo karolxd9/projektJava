@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="anchorWindow" stylesheets="/home/karolxd9/quiz_system/src/main/resources/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.goncalves.project.controller.HomeController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1980.0" StackPane.alignment="CENTER">
+          <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="183.0" layoutY="194.0" prefHeight="540.0" prefWidth="1980.0" text="Witaj, " visible="false" AnchorPane.bottomAnchor="193.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="194.0">
+              <font>
+                  <Font size="40.0" />
+              </font>
+          </Label>
+          <Button fx:id="logout_btn" contentDisplay="CENTER" layoutX="959.0" layoutY="917.0" mnemonicParsing="false" onAction="#logout" styleClass="btn" text="Wyloguj" />
+         <MenuBar fx:id="primaryMenu" layoutY="1.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="1980.0">
+           <menus>
+             <Menu fx:id="infoMenu" mnemonicParsing="false" text="Informacje">
+               <items>
+                 <MenuItem fx:id="userInfo" mnemonicParsing="false" onAction="#showUserInfo" text="Dane Użytkownika" />
+                     <MenuItem mnemonicParsing="false" text="Uział w quizach" />
+                     <MenuItem mnemonicParsing="false" text="Udział w kursach" />
+                     <MenuItem mnemonicParsing="false" text="Zdobyte certyfikaty" />
+               </items>
+             </Menu>
+               <Menu fx:id="editMenu" mnemonicParsing="false" text="Edycja">
+                  <items>
+                     <MenuItem fx:id="editData" mnemonicParsing="false" onAction="#changeData" text="Dane Osobowe" />
+                     <MenuItem mnemonicParsing="false" onAction="#editPassClicked" text="Hasło" />
+                  </items>
+               </Menu>
+               <Menu fx:id="createMenu" mnemonicParsing="false" text="Tworzenie">
+                  <items>
+                     <MenuItem fx:id="toQuizCreator" mnemonicParsing="false" onAction="#showNameQuizForm" text="Quiz" />
+                     <MenuItem mnemonicParsing="false" text="Kurs" />
+                     <MenuItem mnemonicParsing="false" text="Certyfikat" />
+                  </items>
+               </Menu>
+           </menus>
+         </MenuBar>
+         <BorderPane fx:id="EditData" disable="true" layoutX="183.0" layoutY="199.0" prefHeight="57.0" prefWidth="425.0" visible="false" AnchorPane.bottomAnchor="193.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="194.0">
+            <top>
+               <VBox prefWidth="723.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <SplitPane dividerPositions="0.5" prefWidth="422.0">
+                        <items>
+                           <TextField fx:id="changeLoginField" prefHeight="26.0" prefWidth="1620.0" />
+                           <Button fx:id="changeLoginButton" mnemonicParsing="false" onAction="#changeLogin" prefHeight="26.0" prefWidth="184.0" styleClass="btn" text="Zmień login" />
+                        </items>
+                     </SplitPane>
+                     <SplitPane dividerPositions="0.5">
+                        <items>
+                           <TextField fx:id="changeSurnameField" maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="1620.0" />
+                           <Button fx:id="changeSurnameButton" mnemonicParsing="false" onAction="#changeSurname" prefHeight="26.0" prefWidth="119.0" styleClass="btn" text="Zmień nazwisko" />
+                        </items>
+                     </SplitPane>
+                     <SplitPane dividerPositions="0.5">
+                        <items>
+                           <TextField fx:id="changeNameField" prefHeight="26.0" prefWidth="1620.0" />
+                           <Button fx:id="changeNameButton" mnemonicParsing="false" onAction="#changeName" prefHeight="26.0" prefWidth="119.0" styleClass="btn" text="Zmień imię" />
+                        </items>
+                     </SplitPane>
+                  </children>
+               </VBox>
+            </top>
+         </BorderPane>
+         <BorderPane fx:id="quizPane" layoutX="1.0" layoutY="27.0" prefHeight="830.0" prefWidth="1860.0" visible="false" AnchorPane.bottomAnchor="223.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="69.0">
+            <center>
+               <SplitPane fx:id="quizNameSplit" dividerPositions="0.9564047362755651, 0.5" prefHeight="160.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                 <items>
+                     <TextField fx:id="nameQuizField" prefHeight="26.0" prefWidth="1627.0" promptText="Wprowadź nazwę quizu" />
+                     <Button fx:id="nameQuizButton" mnemonicParsing="false" onAction="#nameQuizButtonAction" prefHeight="26.0" prefWidth="113.0" text="Zatwierdź" />
+                     <BorderPane prefHeight="200.0" prefWidth="200.0" />
+                 </items>
+               </SplitPane>
+            </center></BorderPane>
+         <BorderPane fx:id="editPass" disable="true" layoutY="29.0" prefHeight="540.0" prefWidth="1980.0" visible="false" AnchorPane.bottomAnchor="223.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="69.0">
+            <top>
+               <VBox prefWidth="723.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <SplitPane>
+                        <items>
+                           <PasswordField fx:id="currentPassField" />
+                        </items>
+                     </SplitPane>
+                     <SplitPane dividerPositions="0.5">
+                        <items>
+                           <PasswordField fx:id="changePassField" />
+                           <Button fx:id="changePassButton" mnemonicParsing="false" onAction="#changePass2" prefHeight="26.0" prefWidth="141.0" styleClass="btn" text="Zmień hasło" />
+                        </items>
+                     </SplitPane>
+                  </children>
+               </VBox>
+            </top>
+         </BorderPane>
+         <BorderPane fx:id="taskCreatorPane" layoutX="53.0" layoutY="144.0" prefHeight="634.0" prefWidth="1851.0" AnchorPane.bottomAnchor="302.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="144.0">
+            <center>
+               <TextArea fx:id="taskArea" prefHeight="402.0" prefWidth="1223.0" promptText="Treść zadania" BorderPane.alignment="CENTER_RIGHT" />
+            </center>
+            <top>
+               <TextField fx:id="nameTaskField" prefHeight="26.0" prefWidth="1847.0" promptText="Nazwa zadania" BorderPane.alignment="CENTER" />
+            </top>
+            <bottom>
+               <Button fx:id="submitTaskButton" mnemonicParsing="false" onAction="#createTask" prefHeight="26.0" prefWidth="187.0" text="Zatwierdź i zakończ" BorderPane.alignment="TOP_CENTER" />
+            </bottom>
+            <right>
+               <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <ComboBox fx:id="typeComboBox" prefWidth="150.0" promptText="Typ" />
+                     <ComboBox fx:id="levelComboBox" prefWidth="150.0" promptText="Poziom" />
+                  </children>
+               </VBox>
+            </right>
+            <left>
+               <Spinner fx:id="maxPointsField" editable="true" BorderPane.alignment="CENTER" />
+            </left>
+         </BorderPane>
+      
+      </AnchorPane>
+   </children>
+</StackPane>

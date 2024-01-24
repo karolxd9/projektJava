@@ -15,7 +15,7 @@ public class DBServerThread {
     private static String query = "";
     public void main() {
         try {
-            ServerSocket serverSocket = new ServerSocket(7004);
+            ServerSocket serverSocket = new ServerSocket(7005);
 
             while (true) {
                 Socket socket = serverSocket.accept();
@@ -54,6 +54,7 @@ public class DBServerThread {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(DBServerThread.query);
 
+                if(DBServerThread.query.startsWith("SELECT")){
                 // Przekazanie danych do klienta
                 ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
 
@@ -65,11 +66,9 @@ public class DBServerThread {
                 }
 
                 outputStream.writeObject(resultData);
+}
 
-                outputStream.close();
-                resultSet.close();
-                statement.close();
-                connection.close();
+
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
@@ -108,11 +107,6 @@ public class DBServerThread {
                 } catch (SQLException ex) {
                     connection.rollback();
                     ex.printStackTrace();
-                } finally {
-                    // Close resources in the finally block
-                    if (connection != null) {
-                        connection.close();
-                    }
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

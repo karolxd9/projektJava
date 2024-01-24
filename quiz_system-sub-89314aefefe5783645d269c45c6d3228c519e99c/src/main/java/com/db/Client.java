@@ -10,7 +10,9 @@ import com.conf.GlobalSettings;
 public class Client {
     private String query;
     private Socket socket;
-    private Object [] resultArray;
+    private Object[] resultArray;
+    private PrintWriter printWriter;
+    private ObjectInputStream inputStream;
 
     public Client(String query) throws IOException {
         this.query = query;
@@ -21,40 +23,37 @@ public class Client {
         return this.query;
     }
 
-    public Object [] getResultArray(){
+    public Object[] getResultArray() {
         return this.resultArray;
     }
 
-    public void main() {
-        try {
+    public void setResultArray() {
+        this.resultArray = null;
+    }
+
+    public void main() throws IOException, ClassNotFoundException {
+
 
             //wyśyłanie danych do serwera
-            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
+            printWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 
 
             printWriter.println(this.query);
 
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
 
-            //odbierz dane od serwera
-            ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
-            try {
+
+
+            if (this.query.startsWith("SELECT")) {
+                //odbierz dane od serwera
+                inputStream = new ObjectInputStream(socket.getInputStream());
                 ArrayList<Object> receivedData = (ArrayList<Object>) inputStream.readObject();
                 System.out.println("Otrzymano dane: " + receivedData.toString());
                 resultArray = receivedData.toArray();
-
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+            }
+            else{
+                System.out.println("Zapytanie DML");
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     /*public void sendQuery() throws IOException {
 
@@ -82,4 +81,5 @@ public class Client {
             e.printStackTrace();
         }
     }*/
+    }
 }

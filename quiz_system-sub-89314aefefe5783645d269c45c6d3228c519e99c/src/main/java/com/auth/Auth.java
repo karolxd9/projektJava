@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class Auth {
 
     private String loginFromDB;
-    public boolean login1step(String username, String pass, Socket socket) throws SQLException, IOException {
+    public boolean login1step(String username, String pass, Socket socket) throws SQLException, IOException, ClassNotFoundException {
 
         String query = "SELECT * FROM user_login WHERE login="+"'"+username+"'"+
                 " AND PASSWORD="+"'"+SHA256Hashing.hashStringToSHA256(pass)+"'";
@@ -25,6 +25,24 @@ public class Auth {
         }
         return true;
 
+    }
+
+    public static boolean lackValue(String login,Socket socket) throws IOException {
+        Client client = null;
+        try {
+            client = new Client("SELECT * FROM user_login WHERE login = '"+login+"';");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            client.main();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        if(client.getResultArray().length == 0){
+            return true;
+        }
+        return false;
     }
 
 

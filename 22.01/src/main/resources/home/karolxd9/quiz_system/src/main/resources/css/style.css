@@ -1,0 +1,32 @@
+.white-bg{
+    -fx-background-color: #fff;
+}
+
+.red-bg{
+    -fx-background-color: red;
+}
+
+.btn{
+    -fx-background-color: linear-gradient(to bottom right, #1b8c9a, #1b8c9a);
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-family: Arial;
+}
+.btn:hover{
+    -fx-background-color: linear-gradient(to bottom right, #1da5b6, #1b8c9a);
+}
+
+.btn:focused{
+    -fx-background-color: linear-gradient(to bottom right, #1da5b6, #1b8c9a);
+}
+
+.textfield{
+   /* -fx-prompt-text-fill: #1b8c9a;
+    -fx-text-fill: #1b8c9a; */
+
+}
+.textfield:focused{
+
+    -fx-border-width: .8px;
+}

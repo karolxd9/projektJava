@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.goncalves.project.controller.loginController">
+    <AnchorPane minHeight="1080.0" minWidth="1920.0" styleClass="white-bg" stylesheets="/home/karolxd9/quiz_system/src/main/resources/css/style.css" StackPane.alignment="CENTER">
+      <Button fx:id="switchlanguagebutton" layoutX="886.0" layoutY="894.0" mnemonicParsing="false" onAction="#clicktoswitchlanguage" prefHeight="26.0" prefWidth="173.0" text="Zmień język" />
+        <AnchorPane fx:id="loginAnchor" layoutX="817.0" layoutY="291.0" prefHeight="576.0" prefWidth="312.0" visible="false">
+            <Label fx:id="loginpanel" layoutX="79.0" layoutY="100.0" text="Panel Logowania" textFill="#187778">
+                <font>
+                    <Font name="Gill Sans MT" size="20.0" />
+                </font>
+            </Label>
+            <TextField fx:id="loginInput" layoutX="37.0" layoutY="152.0" prefHeight="30.0" prefWidth="237.0" styleClass="textfield" />
+            <PasswordField fx:id="passwordInput" layoutX="38.0" layoutY="197.0" prefHeight="30.0" prefWidth="237.0" styleClass="textfield" />
+            <TextField fx:id="login_showPassword" layoutX="38.0" layoutY="197.0" prefHeight="30.0" prefWidth="237.0" styleClass="textfield" visible="false" />
+            <CheckBox fx:id="passwordShow" layoutX="41.0" layoutY="234.0" mnemonicParsing="false" onAction="#showPassword" />
+            <Button fx:id="loginButton" layoutX="38.0" layoutY="278.0" mnemonicParsing="false" onAction="#loginToSystem" prefHeight="40.0" prefWidth="237.0" styleClass="btn" text="Logowanie" />
+            <Label fx:id="registerHyperlink" layoutX="38.0" layoutY="431.0" prefHeight="18.0" prefWidth="162.0" text="Rejstracja Konta" textAlignment="CENTER">
+                <font>
+                    <Font name="Gill Sans MT" size="15.0" />
+                </font>
+            </Label>
+            <Button fx:id="CreateAccount" layoutX="37.0" layoutY="461.0" mnemonicParsing="false" onAction="#accountCreator" prefHeight="30.0" prefWidth="237.0" styleClass="btn" text="Utwórz Konto" />
+            <SVGPath content="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" fill="#1b8c9a" layoutX="140.0" layoutY="48.0" scaleX="5.0" scaleY="5.0" />
+         <Label fx:id="nameuser" layoutX="38.0" layoutY="134.0" prefHeight="18.0" prefWidth="127.0" text="Nazwa użytkownika" />
+         <Label fx:id="userofpass" layoutX="38.0" layoutY="182.0" prefHeight="18.0" prefWidth="79.0" text="Hasło" />
+         <Label fx:id="pokazpass" layoutX="64.0" layoutY="234.0" prefHeight="18.0" prefWidth="104.0" text="Pokaż hasło" />
+        </AnchorPane>
+        <AnchorPane fx:id="signupForm" layoutX="808.0" layoutY="324.0" prefHeight="557.0" prefWidth="304.0">
+         <Label fx:id="passrepreg" layoutX="42.0" layoutY="299.0" prefHeight="18.0" prefWidth="115.0" text="Powtórz hasło" />
+            <SVGPath content="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" fill="#1b8c9a" layoutX="131.0" layoutY="50.0" scaleX="5.0" scaleY="5.0" />
+            <SVGPath content="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" fill="#1b8c9a" layoutX="149.0" layoutY="40.0" scaleX="5.0" scaleY="5.0" />
+            <Label fx:id="regkonto" layoutX="77.0" layoutY="82.0" text="Rejestracja Konta" textFill="#187778">
+                <font>
+                    <Font name="Gill Sans MT" size="20.0" />
+                </font>
+            </Label>
+            <TextField fx:id="signup_username" layoutX="41.0" layoutY="128.0" prefHeight="30.0" prefWidth="237.0" styleClass="textfield" />
+            <PasswordField fx:id="signup_password" layoutX="41.0" layoutY="269.0" prefHeight="30.0" prefWidth="237.0" styleClass="textfield" />
+            <PasswordField fx:id="signup_cpassword" layoutX="41.0" layoutY="317.0" prefHeight="30.0" prefWidth="237.0" styleClass="textfield" />
+            <Button fx:id="registerUserButton" layoutX="40.0" layoutY="375.0" mnemonicParsing="false" onAction="#accountCreator2" prefHeight="40.0" prefWidth="237.0" styleClass="btn" text="Rejestracja" />
+            <Label fx:id="logreg" layoutX="121.0" layoutY="450.0" text="Logowanie">
+                <font>
+                    <Font name="Gill Sans MT" size="15.0" />
+                </font>
+            </Label>
+            <Button fx:id="signup_loginAccount" layoutX="42.0" layoutY="483.0" mnemonicParsing="false" onAction="#returnToLogin" prefHeight="30.0" prefWidth="237.0" styleClass="btn" text="Zaloguj się" />
+         <TextField fx:id="signup_name" layoutX="40.0" layoutY="175.0" prefHeight="30.0" prefWidth="237.0" styleClass="textfield" />
+         <TextField fx:id="signup_surname" layoutX="41.0" layoutY="224.0" prefHeight="30.0" prefWidth="237.0" styleClass="textfield" />
+         <Label fx:id="usernamereg" layoutX="41.0" layoutY="111.0" prefHeight="18.0" prefWidth="135.0" text="Nazwa użytkownika" />
+         <Label fx:id="namereg" layoutX="40.0" layoutY="158.0" prefHeight="18.0" prefWidth="104.0" text="Imie" />
+         <Label fx:id="surnamereg" layoutX="42.0" layoutY="205.0" prefHeight="18.0" prefWidth="127.0" text="Nazwisko" />
+         <Label fx:id="passreg" layoutX="40.0" layoutY="254.0" prefHeight="18.0" prefWidth="92.0" text="Hasło" />
+        </AnchorPane>
+      <rotationAxis>
+         <Point3D x="4.0" y="4.0" />
+      </rotationAxis>
+    </AnchorPane>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</StackPane>
